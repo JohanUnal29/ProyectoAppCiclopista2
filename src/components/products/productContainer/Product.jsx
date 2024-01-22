@@ -5,9 +5,16 @@ import { colors } from "../../../global/colors";
 import { useDispatch } from 'react-redux'
 import { setProductSelected } from "../../../features/shop/ShopSlice";
 
+import { useGetProductQuery } from "../../../app/services/shopService";
+
 const Product = ({ item, onModal, onModal2, setProductDetailId, navigation, route }) => {
+  
   const { width } = useWindowDimensions()
   const dispatch = useDispatch()
+
+  const images = Object.values(item.images)
+  
+
   return (
     <Pressable style={styles.container} onPress={() => {
       dispatch(setProductSelected(item.id))
@@ -17,7 +24,7 @@ const Product = ({ item, onModal, onModal2, setProductDetailId, navigation, rout
       <Image
         style={styles.image}
         resizeMode='cover'
-        source={{ uri: item.thumbnail }}
+        source={{ uri: images[2] }}
       />
       <View style={styles.containerButton}>
         <TouchableOpacity style={styles.button} onPress={() => onModal(item)}>

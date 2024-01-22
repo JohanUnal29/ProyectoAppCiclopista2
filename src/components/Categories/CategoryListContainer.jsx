@@ -4,7 +4,6 @@ import { FlatList, Pressable, StyleSheet, Text, TextInput, View } from 'react-na
 import Header from '../subComponents/Header.jsx'
 import Search from "../subComponents/Search.jsx"
 
-import allProducts from "../../data/products.json"
 import ProductListContainer from '../products/productContainer/ProductListContainer.jsx'
 
 //modals
@@ -15,15 +14,29 @@ import AddProduct from '../products/CRUD/AddProduct.jsx'
 import uuid from "react-native-uuid";
 import Counter from '../counter/Counter.jsx'
 
-import { useSelector } from 'react-redux'
+import { useGetProductsQuery } from '../../app/services/shopService.jsx'
 
 
 const CategoryListContainer = ({ navigation, route }) => {
 
-  const productsFilteredByCategory = useSelector(state => state.shop.value.productsFilteredByCategory)
-  const [keyword,setKeyword] = useState("")
-  const [products,setProducts] = useState(productsFilteredByCategory)
+  //DB//
+  const { category } = route.params
+  const { data, isLoading, error } = useGetProductsQuery(category)
+  const [keyword, setKeyword] = useState("")
+  const [products, setProducts] = useState()
 
+  useEffect(() => {
+    if (!isLoading) {
+      const dataArray = Object.values(data)
+      const productsFiltered = dataArray.filter(product => product.title.includes(keyword))
+      setProducts(productsFiltered)
+    }
+
+  }, [keyword, data])
+
+
+
+  //modals
   const [newTitleProduct, setNewTitleProduct] = useState("");
   const [newPriceProduct, setNewPriceProducts] = useState("");
   const [productSelected, setProductSelected] = useState({});
@@ -91,15 +104,6 @@ const CategoryListContainer = ({ navigation, route }) => {
   const handleCloseModalUpdate = () => {
     setModalVisible2(false)
   }
-
-
-  useEffect(() => {
-
-    const productsFiltered = productsFilteredByCategory.filter(product => product.title.includes(keyword))
-    setProducts(productsFiltered)
-
-
-  }, [keyword, productsFilteredByCategory])
 
   return (
     <>

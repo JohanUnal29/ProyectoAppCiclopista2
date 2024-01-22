@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { NavigationContainer } from '@react-navigation/native'
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 import { colors } from '../global/colors'
@@ -8,16 +8,12 @@ import ShopStack from './ShopStack.jsx'
 import CartStack from './CartStack.jsx'
 import OrdersStack from './OrderStack'
 import TabIcon from '../global/TabIcon.jsx'
-import {Entypo} from "@expo/vector-icons"
-
-
 
 const Tab = createBottomTabNavigator()
 
-
 const TabNavigator = () => {
   return (
-    <NavigationContainer>
+    
         <Tab.Navigator
           screenOptions={{
             headerShown:false,
@@ -48,7 +44,7 @@ const TabNavigator = () => {
              }}
              />
       </Tab.Navigator>
-    </NavigationContainer>
+    
   )
 }
 

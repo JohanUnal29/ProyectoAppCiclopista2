@@ -7,9 +7,9 @@ import { fonts } from "./src/global/Fonts.js";
 
 import { useFonts } from "expo-font"
 import { colors } from "./src/global/colors.jsx";
-import TabNavigator from "./src/navigation/TabNavigator.jsx";
 import { store } from './src/app/Store.jsx'
 import { Provider } from 'react-redux'
+import MainNavigator from "./src/navigation/MainNavigator.jsx";
 
 export default function App() {
 
@@ -22,7 +22,7 @@ export default function App() {
         backgroundColor={colors.red}
       />
       <Provider store={store}>
-        <TabNavigator />
+        <MainNavigator />
       </Provider>
     </>
   );

@@ -5,8 +5,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 import Home from '../components/Home/Home.jsx'
 import CategoryListContainer from '../components/Categories/CategoryListContainer.jsx'
-import ProductDetail from "../components/products/ProductDetailContainer/ProductDetail.jsx"
 import Header from '../components/subComponents/Header.jsx'
+import ProductDetail2 from '../components/products/ProductDetailContainer/ProductDetail2.jsx'
 
 const Stack = createNativeStackNavigator()
 
@@ -35,7 +35,7 @@ const ShopStack = () => {
             >
                 <Stack.Screen name='Home' component={Home} />
                 <Stack.Screen name='Category' component={CategoryListContainer} />
-                <Stack.Screen name='Product' component={ProductDetail} />
+                <Stack.Screen name='Product' component={ProductDetail2} />
             </Stack.Navigator>
     );
 };
