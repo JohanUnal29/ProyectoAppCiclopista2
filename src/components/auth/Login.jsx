@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     },
     container: {
         width: "90%",
-        backgroundColor: colors.green1,
+        backgroundColor: colors.green2,
         gap: 15,
         borderRadius: 10,
         justifyContent: "center",
