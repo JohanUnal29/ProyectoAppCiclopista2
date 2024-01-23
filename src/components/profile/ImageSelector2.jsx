@@ -3,11 +3,11 @@ import { StyleSheet, Image, View } from 'react-native'
 import AddButton from '../subComponents/AddButton'
 import * as ImagePicker from 'expo-image-picker'
 import { useSelector } from 'react-redux'
-import { usePostProfileImageMutation } from '../../app/services/shopService.jsx'
-import { useGetProfileImageQuery } from '../../app/services/shopService.jsx'
+import { usePostProfileImageMutation } from '../../app/services/shopService'
+import { useGetProfileImageQuery } from '../../app/services/shopService'
 
-const ImageSelector = ({ navigation }) => {
 
+const ImageSelector2 = ({ navigation }) => {
     const [image, setImage] = useState("")
     const [triggerProfileImage] = usePostProfileImageMutation()
     const localId = useSelector(state => state.auth.value.localId)
@@ -40,8 +40,6 @@ const ImageSelector = ({ navigation }) => {
         triggerProfileImage({ localId, image })
         navigation.goBack()
     }
-
-
     return (
         <View style={styles.container}>
             <Image
@@ -56,9 +54,7 @@ const ImageSelector = ({ navigation }) => {
     )
 }
 
-
-export default ImageSelector
-
+export default ImageSelector2
 
 const styles = StyleSheet.create({
     container: {

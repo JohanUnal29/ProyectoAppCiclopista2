@@ -15,7 +15,7 @@ const AddButton = ({title,onPress}) => {
   
   const styles = StyleSheet.create({
       container:{
-          backgroundColor:colors.green3,
+          backgroundColor:colors.red,
           width:"70%",
           paddingVertical:8,
           margin:10
