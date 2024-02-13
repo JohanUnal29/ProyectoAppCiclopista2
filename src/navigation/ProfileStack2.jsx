@@ -6,6 +6,7 @@ import React from 'react'
 import Cart from '../components/Cart/Cart'
 import ImageSelector2 from '../components/profile/ImageSelector2.jsx'
 import MyProfile2 from '../components/profile/MyProfile2.jsx'
+import LocationSelector from '../components/profile/location/LocationSelector.jsx'
 
 const Stack = createNativeStackNavigator()
 
@@ -25,6 +26,7 @@ const ProfileStack2 = () => {
             <Stack.Screen name="Cart" component={Cart} />
             <Stack.Screen name="ImageSelector2" component={ImageSelector2} />
             <Stack.Screen name="MyProfile2" component={MyProfile2} />
+            <Stack.Screen name="LocationSelector" component={LocationSelector} />
         </Stack.Navigator>
     )
 }

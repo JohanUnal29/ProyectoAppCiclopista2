@@ -3,9 +3,7 @@ import React from "react";
 import { StylesProductContainer } from "./StylesProductContainer";
 import { colors } from "../../../global/colors";
 import { useDispatch } from 'react-redux'
-import { setProductSelected } from "../../../features/shop/ShopSlice";
 
-import { useGetProductQuery } from "../../../app/services/shopService";
 
 const Product = ({ item, onModal, onModal2, setProductDetailId, navigation, route }) => {
   
@@ -17,7 +15,6 @@ const Product = ({ item, onModal, onModal2, setProductDetailId, navigation, rout
 
   return (
     <Pressable style={styles.container} onPress={() => {
-      dispatch(setProductSelected(item.id))
       navigation.navigate("Product", { id: item.id })
     }} >
       <Text style={width > 350 ? styles.text : styles.textMin}>{item.title}</Text>

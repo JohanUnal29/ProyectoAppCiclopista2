@@ -1,10 +1,10 @@
-import { StyleSheet, Text, View, Image, Pressable, useWindowDimensions } from 'react-native'
+import { StyleSheet, Text, View, Image, Pressable, Button, TextInput, useWindowDimensions } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { colors } from '../../../global/colors.jsx'
 
 import { useGetProductQuery } from '../../../app/services/shopService.jsx'
 
-import {addItem} from '../../../features/cart/cartSlice.jsx'
+import { addItem } from '../../../features/cart/cartSlice.jsx'
 
 import { useDispatch } from 'react-redux'
 
@@ -13,6 +13,16 @@ const ProductDetail2 = ({ route }) => {
   const dispatch = useDispatch()
   const { id } = route.params
   const { data, isLoading } = useGetProductQuery(id)
+  const [quantity, setQuantity] = useState(1)
+
+  const increment = () => {
+    setQuantity(quantity + 1)
+  };
+
+  const decrement = () => {
+    setQuantity(quantity - 1)
+  };
+
 
   return (
     <View>
@@ -27,9 +37,17 @@ const ProductDetail2 = ({ route }) => {
             <Text style={styles.title}>{data.title}</Text>
             <Text>{data.description}</Text>
           </View>
+          <View style={styles.container2}>
+            <Button title='Incrementar' onPress={() => increment()} disabled={quantity === data.stock}/>
+            <Text>{quantity}</Text>
+            <Button title='Decrementar' onPress={() => decrement()} disabled={quantity < 2} />
+            <View style={styles.inputContainer2}>
+              <TextInput style={styles.input2} onChangeText={(t) => setQuantity(parseInt(t))} />
+            </View>
+          </View>
           <View style={styles.containerPrice}>
             <Text style={styles.price}>$ {data.price}</Text>
-            <Pressable style={styles.buyNow} onPress={() => dispatch(addItem(data))}>
+            <Pressable style={styles.buyNow} onPress={() => dispatch(addItem({data: data, quantity: quantity}))}>
               <Text style={styles.buyNowText}>Carrito</Text>
             </Pressable>
           </View>
@@ -89,6 +107,18 @@ const styles = StyleSheet.create({
   },
   buyNowText: {
     color: "white"
+  },
+  container2: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+    margin: 15
+  },
+  inputContainer2: {
+    gap: 10
+  },
+  input2: {
+    borderWidth: 2
   }
 })
 

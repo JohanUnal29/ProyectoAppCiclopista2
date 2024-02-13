@@ -3,15 +3,21 @@ import React from 'react'
 import { Entypo } from "@expo/vector-icons"
 import { colors } from '../../global/colors'
 
+import { removeItem } from '../../features/cart/cartSlice'
+
+import { useDispatch } from 'react-redux'
+
 export default function CartItem({item}) {
+
+    const dispatch = useDispatch()
     return (
         <View style={styles.container}>
             <View style={styles.textContainer}>
                 <Text style={styles.text1}>{item.title}</Text>
                 <Text style={styles.text2}>{item.brand}</Text>
-                <Text  style={styles.text2}>Cantidad: {item.quantity} Precio $ {item.price}</Text>
+                <Text  style={styles.text2}>Cantidad: {item.quantity} Precio $ {item.price*item.quantity}</Text>
             </View>
-            <Entypo name='trash' size={25} color="black" />
+            <Entypo name='trash' size={25} color="black" onPress={() => dispatch(removeItem(item.id))}/>
         </View>
 
     )
