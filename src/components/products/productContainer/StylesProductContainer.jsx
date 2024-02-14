@@ -12,5 +12,6 @@ export const StylesProductContainer = StyleSheet.create({
 
   listContainer: {
     width: "100%",
+    height: "80%"
   },
 });

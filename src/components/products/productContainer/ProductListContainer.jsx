@@ -3,11 +3,10 @@ import React from "react";
 
 import ProductList from "./ProductList.jsx";
 
-import { StylesProductContainer } from "./StylesProductContainer.jsx";
 
-const ProductListContainer = ({products,onModal, onModal2, navigation, route}) => {
+const ProductListContainer = ({products, navigation, route}) => {
   return (
-    <ProductList products={products} navigation={navigation} route={route} onModal={onModal} onModal2={onModal2}/>
+    <ProductList products={products} navigation={navigation} route={route} />
   );
 };
 

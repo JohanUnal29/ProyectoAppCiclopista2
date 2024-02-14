@@ -2,6 +2,7 @@ import { FlatList, StyleSheet} from 'react-native'
 import Category from './Category'
 
 import { useGetCategoriesQuery } from '../../app/services/shopService'
+import { colors } from '../../global/colors'
 
 const CategoryList = ({navigation,route}) => {
 
@@ -21,6 +22,7 @@ const CategoryList = ({navigation,route}) => {
   const styles = StyleSheet.create({
       container:{
           width:"100%",
-          
+          bottom: 25,
+         
       }
   })

@@ -5,7 +5,7 @@ import { colors } from "../../../global/colors";
 import { useDispatch } from 'react-redux'
 
 
-const Product = ({ item, onModal, onModal2, setProductDetailId, navigation, route }) => {
+const Product = ({ item, navigation}) => {
   
   const { width } = useWindowDimensions()
   const dispatch = useDispatch()
@@ -23,16 +23,6 @@ const Product = ({ item, onModal, onModal2, setProductDetailId, navigation, rout
         resizeMode='cover'
         source={{ uri: images[2] }}
       />
-      <View style={styles.containerButton}>
-        <TouchableOpacity style={styles.button} onPress={() => onModal(item)}>
-          <Text style={styles.buttonText}>DELETE</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.button} onPress={() => onModal2(item)}>
-          <Text style={styles.buttonText}>UPDATE</Text>
-        </TouchableOpacity>
-        <Text>{item.price} $</Text>
-      </View>
 
 
     </Pressable>
@@ -45,12 +35,12 @@ export default Product;
 
 const styles = StyleSheet.create({
   container: {
-    width: "85%",
+    width: "80%",
     height: 120,
-    backgroundColor: colors.green2,
+    backgroundColor: colors.blueGradient,
     marginHorizontal: "10%",
     marginVertical: 10,
-    paddingHorizontal: 0,
+    paddingHorizontal: 10,
     paddingVertical: 15,
     borderRadius: 5,
     flexDirection: "row",
@@ -69,28 +59,10 @@ const styles = StyleSheet.create({
     fontSize: 15
   },
   image: {
-    minWidth: 90,
-    height: 100,
-    width: "20%"
+    
+    height: 90,
+    width: 80,
   },
-  button: {
-    width: "90%",
-    height: "30%",
-    borderRadius: 5,
-    marginVertical: 5,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: colors.black,
-  },
-  buttonText: {
-    color: "white",
-    fontSize: 11,
-  },
-  containerButton: {
-    width: "20%",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    height: 100,
-  }
+  
+  
 })

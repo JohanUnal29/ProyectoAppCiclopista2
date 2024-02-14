@@ -11,6 +11,12 @@ import { store } from './src/app/Store.jsx'
 import { Provider } from 'react-redux'
 import MainNavigator from "./src/navigation/MainNavigator.jsx";
 
+import { init } from "./src/database/Index.js";
+
+init()
+.then(() => console.log("DB Initialized"))
+.catch(err => console.log(err))
+
 export default function App() {
 
   const [fontLoaded] = useFonts(fonts)

@@ -60,15 +60,9 @@ export default TabNavigator
 
 const styles = StyleSheet.create({
   tabBar: {
-    backgroundColor: colors.red,
+    backgroundColor: colors.black,
     elevation: 4,
     position: "absolute",
-    bottom: 25,
-    left: 20,
-    right: 20,
-    borderRadius: 15,
-    height: 90
-
-
+    height: 80
   }
 })

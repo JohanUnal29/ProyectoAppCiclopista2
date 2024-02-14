@@ -18,7 +18,7 @@ export default SubmitButton
 const styles = StyleSheet.create({
     button:{
         width:"60%",
-        backgroundColor:colors.green3,
+        backgroundColor:colors.black,
         padding:10,
         alignItems:"enter",
         borderRadius:10

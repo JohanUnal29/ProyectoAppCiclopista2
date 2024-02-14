@@ -8,7 +8,6 @@ const Home = ({navigation,route}) => {
   
     return (
           <>
-              <Counter/>
               <CategoryList navigation={navigation} route={route}/>
           </>
     )

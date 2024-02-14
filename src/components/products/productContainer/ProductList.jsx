@@ -5,13 +5,13 @@ import Product from "./Product.jsx";
 
 import { StylesProductContainer } from "./StylesProductContainer.jsx";
 
-const ProductList = ({products,onModal, onModal2, navigation, route}) => {
+const ProductList = ({products,navigation, route}) => {
   return (
     <View style={StylesProductContainer.listContainer}>
       <FlatList
         data={products}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <Product item={item} navigation={navigation} route={route} onModal={onModal} onModal2={onModal2} />}
+        renderItem={({ item }) => <Product item={item} navigation={navigation} route={route} />}
       />
     </View>
   );

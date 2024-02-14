@@ -17,7 +17,7 @@ const ProfileStack2 = () => {
             screenOptions={
                 ({ route }) => {
                     return {
-                        header: () => <Text>xd</Text>
+                        header: () => <Text>Perfil</Text>
                     }
                 }
             }
