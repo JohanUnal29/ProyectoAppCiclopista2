@@ -17,6 +17,7 @@ const MainNavigator = () => {
                 if (session.rows.length) {
                     const user = session.rows._array[0]
                     dispatch(setUser(user))
+                    console.log(user)
                 }
             } catch (error) {
                 console.log(error)

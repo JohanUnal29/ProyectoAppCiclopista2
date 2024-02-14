@@ -9,11 +9,10 @@ import { useSelector } from 'react-redux'
 
 export default function OrderList() {
   const emailUser = useSelector(state => state.auth.value.email)
-  console.log(emailUser)
-  const { data, isLoading, error } = useGetOdersQuery(emailUser)
+  const { data, isLoading, error, refetch } = useGetOdersQuery(emailUser)
   const [orders, setOrders] = useState()
 
-  console.log(error)
+  console.log(emailUser)
 
   useEffect(() => {
     if (!isLoading) {
@@ -21,7 +20,16 @@ export default function OrderList() {
       setOrders(dataArray)
     }
 
-  }, [data])
+  }, [data, isLoading])
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // Refetch data from the server
+      refetch();
+    }, 5000); // Refresh every 5 seconds
+
+    return () => clearInterval(interval); // Clean up interval on unmount
+  }, []);
 
   return (
     <FlatList

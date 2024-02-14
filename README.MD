@@ -37,3 +37,5 @@ Acá podemos revisar las ordenes que hemos hecho con nuestro correo
 ### Ordenes
 En este sub menú podemos cambiar nuestra foto de perfil, actualizar nuestra ubicación
 <img src="./screenshot/profile.png" width="200" >
+<img src="./screenshot/ubi.png" width="200" >
+<img src="./screenshot/fot.png" width="200" >
